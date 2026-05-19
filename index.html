@@ -22,7 +22,7 @@
       --cream: #F5F0E6;
       --navy-light: #234a75;
       --gold-muted: rgba(196,149,42,0.15);
-      
+
       /* Score Grid Colors */
       --score-orange: #F59E0B;
       --score-purple: #8B5CF6;
@@ -49,7 +49,7 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
       opacity: 0.35;
       pointer-events: none;
-      z-index: 0;
+      z-index: 1; /* Elevated to apply texture over the watermark */
     }
 
     /* Radial glow behind logo */
@@ -68,15 +68,34 @@
       z-index: 0;
     }
 
+    /* ── Watermark Motif ── */
+    .bg-watermark {
+      position: fixed;
+      top: -10%;
+      right: -15%;
+      width: 90vmin;
+      height: 90vmin;
+      min-width: 600px;
+      min-height: 600px;
+      background-image: url('images/white.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      opacity: 0.02; /* Kept extremely subtle */
+      pointer-events: none;
+      z-index: 0;
+      transform: rotate(-15deg);
+    }
+
     .page {
       position: relative;
-      z-index: 1;
+      z-index: 2; /* Elevated above background elements */
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 60px 24px 120px; /* Increased bottom padding */
+      padding: 60px 24px 120px;
       text-align: center;
     }
 
@@ -107,7 +126,7 @@
       transform-origin: center;
       animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     }
-    
+
     .ball-1 { animation-delay: 0.45s; }
     .ball-2 { animation-delay: 0.7s; }
     .ball-3 { animation-delay: 1.05s; }
@@ -237,7 +256,7 @@
     .shape.diamond {
       transform: rotate(45deg);
       transform-origin: center;
-      margin: 0 4px; /* Adjust spacing due to rotation */
+      margin: 0 4px;
     }
 
     /* Score Colors */
@@ -247,9 +266,9 @@
     .bg-green  { background-color: var(--score-green); }
     .bg-yellow { background-color: var(--score-yellow); }
     .bg-red    { background-color: var(--score-red); }
-    .bg-black  { 
-      background-color: var(--score-black); 
-      border: 1px solid rgba(255,255,255,0.2); /* Helps it stand out on navy background */
+    .bg-black  {
+      background-color: var(--score-black);
+      border: 1px solid rgba(255,255,255,0.2);
     }
 
     .download-cta {
@@ -383,8 +402,8 @@
       background: rgba(27, 58, 92, 0.5); /* Semi-transparent navy */
     }
 
-    .socials-large a:hover { 
-      color: var(--navy); 
+    .socials-large a:hover {
+      color: var(--navy);
       background: var(--gold);
       border-color: var(--gold);
     }
@@ -438,17 +457,19 @@
   </style>
 </head>
 <body>
+<div class="bg-watermark" aria-hidden="true"></div>
+
 <div class="page">
 
   <div class="logo" aria-label="Gwari Golf logo">
     <svg viewBox="0 0 240 160" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path class="logo-path" pathLength="100" d="M 18 132 C 26 52 154 8 222 72"
             stroke="#C4952A" stroke-width="3" stroke-linecap="round" fill="none"/>
-      
+
       <circle class="ball ball-1" cx="60" cy="38" r="6.5" fill="#C4952A"/>
       <circle class="ball ball-2" cx="120" cy="14" r="7.5" fill="#F5F0E6"/>
       <circle class="ball ball-3" cx="178" cy="4" r="6.5" fill="#C4952A"/>
-      
+
       <text x="120" y="105"
             text-anchor="middle"
             font-family="'Barlow Condensed', sans-serif"
@@ -484,7 +505,7 @@
   <div class="grid-explainer">
     <h2>Decode the Grid</h2>
     <p>Seen a Gwari chart on your timeline? Here is how to read the round.</p>
-    
+
     <div class="score-legend">
       <div class="score-item">
         <div class="shape diamond bg-orange"></div><span>Ace / Albatross</span>
@@ -514,7 +535,7 @@
 
   <div class="form-wrap">
     <label class="form-label" for="email">Get early access</label>
-    
+
     <form action="YOUR_KIT_FORM_ACTION_URL_HERE" method="post" target="_blank">
       <div class="form-row">
         <input type="email" id="email" name="email_address"
