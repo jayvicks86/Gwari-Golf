@@ -22,15 +22,6 @@
       --cream: #F5F0E6;
       --navy-light: #234a75;
       --gold-muted: rgba(196,149,42,0.15);
-
-      /* Score Grid Colors */
-      --score-orange: #F59E0B;
-      --score-purple: #8B5CF6;
-      --score-blue: #3B82F6;
-      --score-green: #10B981;
-      --score-yellow: #EAB308;
-      --score-red: #EF4444;
-      --score-black: #111827;
     }
 
     html, body {
@@ -247,28 +238,20 @@
       color: var(--cream);
     }
 
-    .shape {
-      width: 16px;
-      height: 16px;
-      border-radius: 2px;
+    /* Emoji Score Standardization Styling */
+    .golf-score {
+      font-size: 18px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      user-select: none;
     }
 
-    .shape.diamond {
-      transform: rotate(45deg);
-      transform-origin: center;
-      margin: 0 4px;
-    }
-
-    /* Score Colors */
-    .bg-orange { background-color: var(--score-orange); }
-    .bg-purple { background-color: var(--score-purple); }
-    .bg-blue   { background-color: var(--score-blue); }
-    .bg-green  { background-color: var(--score-green); }
-    .bg-yellow { background-color: var(--score-yellow); }
-    .bg-red    { background-color: var(--score-red); }
-    .bg-black  {
-      background-color: var(--score-black);
-      border: 1px solid rgba(255,255,255,0.2);
+    .golf-par {
+      transform: scale(1.25); /* Calibrates the white dot to match the footprint of the spheres */
     }
 
     .download-cta {
@@ -508,25 +491,25 @@
 
     <div class="score-legend">
       <div class="score-item">
-        <div class="shape diamond bg-orange"></div><span>Ace / Albatross</span>
+        <span class="golf-score" aria-hidden="true">🟡</span><span>Ace / Albatross</span>
       </div>
       <div class="score-item">
-        <div class="shape bg-purple"></div><span>Eagle</span>
+        <span class="golf-score" aria-hidden="true">🔵</span><span>Eagle</span>
       </div>
       <div class="score-item">
-        <div class="shape bg-blue"></div><span>Birdie</span>
+        <span class="golf-score" aria-hidden="true">🟢</span><span>Birdie</span>
       </div>
       <div class="score-item">
-        <div class="shape bg-green"></div><span>Par</span>
+        <span class="golf-score golf-par" aria-hidden="true">▫️</span><span>Par</span>
       </div>
       <div class="score-item">
-        <div class="shape bg-yellow"></div><span>Bogey</span>
+        <span class="golf-score" aria-hidden="true">🔳</span><span>Bogey</span>
       </div>
       <div class="score-item">
-        <div class="shape bg-red"></div><span>Double Bogey</span>
+        <span class="golf-score" aria-hidden="true">🔲</span><span>Double Bogey</span>
       </div>
       <div class="score-item">
-        <div class="shape bg-black"></div><span>3+ Over</span>
+        <span class="golf-score" aria-hidden="true">⬛</span><span>3+ Over</span>
       </div>
     </div>
 
