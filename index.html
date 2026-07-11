@@ -13,25 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="images/whitegold-bluebg.svg" media="(prefers-color-scheme: light)">
   <link rel="icon" href="images/white-goldbg.svg" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="assets/site.css">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy:  #1B3A5C;
-      --gold:  #C4952A;
-      --cream: #F5F0E6;
-      --navy-light: #234a75;
-      --gold-muted: rgba(196,149,42,0.15);
-    }
-
-    html, body {
-      height: 100%;
-      background: var(--navy);
-      color: var(--cream);
-      font-family: 'Barlow', sans-serif;
-      overflow-x: hidden;
-    }
-
     /* Subtle grain overlay */
     body::before {
       content: '';
@@ -263,6 +246,303 @@
       color: var(--gold);
     }
 
+    /* ══════════════════════════════════════════
+       New feature sections (Session 1 · Part A)
+       Two registers, one contact point: .register-seam
+       ══════════════════════════════════════════ */
+
+    .feature-section {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 64px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .feature-section.shield-hero { max-width: 680px; }
+
+    .feature-h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+
+    .feature-h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .feature-tagline {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(12px, 2.5vw, 14px);
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(245,240,230,0.65);
+      margin-bottom: 22px;
+    }
+
+    .feature-body {
+      max-width: 440px;
+      margin: 0 auto;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(245,240,230,0.72);
+    }
+
+    /* Ghost-token register: soft glow, rounded panel */
+    .ghost-panel {
+      background: var(--panel-navy);
+      border: 1px solid var(--gold-muted);
+      border-radius: 12px;
+      padding: 36px 28px;
+    }
+
+    /* Heraldic register: double-rule frame, squared corners */
+    .heraldic-panel {
+      border: 1px solid var(--gold-line);
+      border-radius: 4px;
+      padding: 3px;
+    }
+
+    .heraldic-panel-inner {
+      background: var(--panel-navy);
+      border: 1px solid var(--gold-muted);
+      border-radius: 2px;
+      padding: 40px 28px;
+    }
+
+    /* Register seam — the only place the two families touch */
+    .register-seam {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 360px;
+      margin: 8px auto 56px;
+    }
+
+    .seam-line { flex: 1; height: 1px; background: var(--gold-line); }
+    .seam-glyph { width: 20px; height: auto; flex-shrink: 0; }
+
+    /* Gwari Daily — token strip */
+    .token-strip {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .token-day {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .token-empty {
+      background: transparent;
+      border: 1px solid var(--gold-muted);
+      color: rgba(245,240,230,0.4);
+    }
+
+    .token-today {
+      background: transparent;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      animation: tokenPulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes tokenPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(196,149,42,0.45); }
+      50%      { box-shadow: 0 0 0 6px rgba(196,149,42,0); }
+    }
+
+    /* Ghost Duel — vs layout */
+    .duel-vs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .duel-side { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+
+    .duel-avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--panel-navy);
+      border: 1px solid var(--gold-muted);
+    }
+
+    .duel-you {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+    }
+
+    .duel-ghost-avatar svg {
+      width: 60px;
+      height: 60px;
+      animation: ghostFloat 3.4s ease-in-out infinite;
+    }
+
+    @keyframes ghostFloat {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-4px); }
+    }
+
+    .duel-vs-mark {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      color: rgba(245,240,230,0.65);
+    }
+
+    .duel-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245,240,230,0.65);
+    }
+
+    /* Ghost Hunt — pip trail */
+    .hunt-compare {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+      margin-top: 28px;
+    }
+
+    .hunt-row { display: flex; align-items: center; gap: 12px; }
+
+    .hunt-row-label {
+      width: 46px;
+      flex-shrink: 0;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: right;
+      color: rgba(245,240,230,0.65);
+    }
+
+    .hunt-pips { display: flex; gap: 6px; }
+
+    .pip {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-line);
+      background: transparent;
+    }
+
+    .pip-filled { background: var(--gold); border-color: var(--gold); }
+    .pip-ghost  { opacity: 0.55; }
+
+    /* Counties League */
+    .league-crest { margin: 4px auto 20px; }
+
+    .league-steps {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 400px;
+      margin: 32px auto 0;
+      text-align: left;
+    }
+
+    .league-steps li { display: flex; gap: 14px; align-items: baseline; }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 22px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 22px;
+      color: var(--gold);
+    }
+
+    .step-text {
+      font-size: 14px;
+      line-height: 1.5;
+      color: rgba(245,240,230,0.75);
+    }
+
+    /* Trade Wind Shield */
+    .shield-crest-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+
+    .shield-crest-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -25%;
+      background: radial-gradient(circle, rgba(196,149,42,0.12) 0%, transparent 70%);
+      z-index: -1;
+    }
+
+    .shield-crest { width: min(220px, 55vw); height: auto; }
+
+    .shield-date-chip {
+      display: inline-block;
+      margin-top: 26px;
+      padding: 10px 20px;
+      border: 1px solid var(--gold-line);
+      border-radius: 2px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    @media (max-width: 480px) {
+      .ghost-panel { padding: 28px 18px; }
+      .heraldic-panel-inner { padding: 32px 18px; }
+      .duel-vs { flex-direction: column; gap: 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .feature-section {
+        animation: none;
+        opacity: 1;
+      }
+      .token-today,
+      .duel-ghost-avatar svg {
+        animation: none;
+      }
+    }
+
     /* ── Email form (Kit) ── */
     .form-wrap {
       width: 100%;
@@ -413,12 +693,8 @@
       text-decoration: none;
     }
 
-    /* ── Animations ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
+    /* ── Animations ──
+       fadeUp lives in assets/site.css (shared across every page). */
     @keyframes drawArch {
       to { stroke-dashoffset: 0; }
     }
@@ -515,6 +791,127 @@
 
     <p class="download-cta">Track & share your rounds. App coming soon.</p>
   </div>
+
+  <!-- Shared def: Gwari ghost mark, recoloured from images/gwari-ghost--original.svg
+       (native teal/bronze/near-black) to the three brand tokens, since only the
+       Trade Wind Shield crest is licensed to keep its own palette. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="gwari-ghost-mark" viewBox="0 0 1024 1024">
+      <path fill="var(--cream)" transform="translate(524.168,128.441)" d="M0 0 C4.38 3.73 6.62 7.15 7.13 12.96 C7.14 16.18 7.05 19.35 6.83 22.56 C7.28 22.57 7.28 22.57 9.55 22.6 C26.77 23.26 40.81 29.44 55.77 37.62 C60.63 40.19 65.33 41.69 70.71 42.81 C71.5 42.98 72.3 43.14 73.12 43.32 C82.68 45.24 90.64 44.63 100.13 42.63 C104.09 41.8 107.78 41.22 111.83 41.56 C112.49 42.22 113.15 42.88 113.83 43.56 C113.17 55.43 104.8 66.73 96.51 74.83 C91.37 79.34 85.95 82.83 79.89 85.93 C79.28 86.26 78.66 86.58 78.02 86.91 C66.23 92.64 53.94 93.15 41.05 93.55 C29.91 94.09 20.06 96.89 10.77 103.18 C9.91 103.75 9.06 104.32 8.17 104.91 C7.4 105.45 6.63 106 5.83 106.56 C5.14 107 4.44 107.43 3.72 107.88 C1.83 109.56 1.83 109.56 1.31 111.63 C1.3 112.42 1.3 113.21 1.29 114.03 C1.27 114.93 1.25 115.83 1.23 116.76 C1.23 117.73 1.22 118.7 1.22 119.7 C1.21 120.69 1.19 121.68 1.17 122.71 C1.12 125.89 1.1 129.07 1.08 132.25 C1.05 134.4 1.02 136.55 0.99 138.71 C0.92 143.99 0.87 149.28 0.83 154.56 C1.44 154.62 2.04 154.68 2.67 154.75 C3.07 154.79 3.07 154.79 5.09 155 C5.88 155.08 6.68 155.17 7.49 155.25 C24.46 157.48 40.92 166.78 53.83 177.56 C54.79 178.35 55.75 179.15 56.73 179.96 C63.16 185.54 68.18 191.45 72.83 198.56 C73.36 199.35 73.9 200.14 74.45 200.95 C88.5 222.88 91.04 248.94 90.82 274.37 C90.82 275.31 90.81 276.26 90.8 277.23 C90.76 281.13 90.72 285.03 90.66 288.93 C90.12 325.01 100.84 354.75 124.5 382.01 C128.04 386.12 131.44 390.33 134.83 394.56 C135.23 395.06 135.23 395.06 137.26 397.57 C156.17 421.35 167.8 447.63 165.54 478.52 C163.96 490.88 160.98 503.36 151.33 512 C144.54 517.21 138.37 518.72 129.83 518.56 C123.43 517.54 117.91 514.66 113.83 509.56 C111.9 505.84 109.83 501.82 109.83 497.56 C109.01 497.79 108.18 498.01 107.33 498.25 C102.81 498.65 99.77 497.78 95.83 495.56 C91.89 491.95 90.03 488.89 89.7 483.63 C90.11 477.16 93.15 472.69 97.53 468.1 C100.22 464.92 100.29 461.15 100.25 457.16 C99.03 449.51 93.74 443.27 88.83 437.56 C88.63 438.26 88.43 438.97 88.22 439.69 C84.21 453.65 80.12 466.95 72.83 479.56 C72.28 480.52 71.73 481.48 71.16 482.48 C56.15 507.25 29.61 531.36 0.83 538.56 C0.83 591.69 0.83 644.82 0.83 699.56 C5.45 699.89 10.07 700.22 14.83 700.56 C18.03 701.05 21.12 701.56 24.27 702.25 C24.67 702.33 24.67 702.33 26.69 702.77 C40 705.82 54.69 710.68 62.73 722.42 C65.36 727.53 65.33 731.89 63.71 737.31 C61.71 740.77 59.85 742.94 56.83 745.56 C56.56 745.8 56.56 745.8 55.19 747.02 C34.31 764.3 -3.14 764.43 -28.71 762.26 C-47.98 760.16 -71.19 757.14 -84.79 741.75 C-88.79 736.38 -88.81 732.14 -88.17 725.56 C-82.99 714.33 -70.97 709.48 -60.07 705.4 C-48.82 701.65 -37.02 699.56 -25.17 699.56 C-25.17 650.06 -25.17 600.56 -25.17 549.56 C-74.64 570.17 -74.64 570.17 -92.18 585.03 C-94.17 586.56 -94.17 586.56 -97.17 587.56 C-97.17 588.22 -97.17 588.88 -97.17 589.56 C-97.83 589.56 -98.49 589.56 -99.17 589.56 C-99.3 589.85 -99.3 589.85 -99.99 591.33 C-101.15 593.52 -102.43 595.26 -103.98 597.18 C-112.44 608.29 -115.3 619.69 -114.17 633.56 C-111.4 646.41 -102.96 658.15 -92.11 665.44 C-90.66 666.35 -89.2 667.24 -87.73 668.12 C-86.95 668.59 -86.18 669.06 -85.38 669.55 C-77.96 673.92 -70.3 676.84 -62.17 679.56 C-57.42 681.18 -57.42 681.18 -55.17 684.56 C-55.17 687.56 -55.17 687.56 -56.17 690.56 C-71.77 699.97 -96.02 699.05 -113.05 695.1 C-127.84 691.4 -141.39 685.35 -153.17 675.56 C-154.09 674.8 -155.01 674.04 -155.96 673.25 C-162.76 667.38 -168.15 660.99 -173.17 653.56 C-173.8 652.64 -174.42 651.71 -175.07 650.76 C-190.35 626.56 -192.25 596.2 -186.43 568.82 C-183.24 555 -178.25 542.81 -171.17 530.56 C-170.4 529.21 -169.64 527.86 -168.88 526.52 C-166.99 523.19 -165.09 519.87 -163.17 516.56 C-163.83 516.18 -164.5 515.81 -165.18 515.42 C-177.54 508.26 -183.48 499.7 -187.93 486.26 C-193.51 463.96 -187.33 438.17 -176.48 418.43 C-168.32 404.86 -158.21 392.67 -147.98 380.63 C-145.7 377.94 -143.43 375.25 -141.17 372.56 C-140.52 371.79 -139.87 371.02 -139.2 370.23 C-119.46 345.99 -113.91 317.06 -114.18 286.6 C-114.18 285.64 -114.19 284.68 -114.2 283.69 C-114.24 279.71 -114.28 275.74 -114.34 271.77 C-114.75 243.64 -110.47 212.62 -91.17 190.56 C-90.51 190.56 -89.85 190.56 -89.17 190.56 C-88.93 190 -88.69 189.43 -88.44 188.85 C-79.04 171.88 -55.79 162.1 -38.17 156.35 C-35.45 155.63 -32.74 155.05 -29.98 154.51 C-29.08 154.33 -28.18 154.15 -27.25 153.97 C-26.56 153.83 -25.88 153.7 -25.17 153.56 C-25.05 137.51 -24.96 121.47 -24.91 105.42 C-24.88 97.97 -24.85 90.52 -24.79 83.07 C-24.74 76.57 -24.71 70.07 -24.7 63.58 C-24.69 60.14 -24.68 56.7 -24.64 53.26 C-24.6 49.42 -24.6 45.58 -24.6 41.74 C-24.58 40.6 -24.56 39.47 -24.55 38.3 C-24.59 31.3 -25.55 27.85 -30.17 22.56 C-32.01 17.26 -31.35 11.88 -29.38 6.7 C-26.57 1.73 -22.2 -1.43 -17.17 -3.94 C-10.5 -5.05 -5.48 -3.81 0 0 Z "/>
+      <path fill="var(--gold)" transform="translate(524.168,128.441)" d="M0 0 C4.38 3.73 6.62 7.15 7.13 12.96 C7.14 16.18 7.05 19.35 6.83 22.56 C7.28 22.57 7.28 22.57 9.55 22.6 C26.77 23.26 40.81 29.44 55.77 37.62 C60.63 40.19 65.33 41.69 70.71 42.81 C71.5 42.98 72.3 43.14 73.12 43.32 C82.68 45.24 90.64 44.63 100.13 42.63 C104.09 41.8 107.78 41.22 111.83 41.56 C112.49 42.22 113.15 42.88 113.83 43.56 C113.17 55.43 104.8 66.73 96.51 74.83 C91.37 79.34 85.95 82.83 79.89 85.93 C79.28 86.26 78.66 86.58 78.02 86.91 C66.23 92.64 53.94 93.15 41.05 93.55 C29.91 94.09 20.06 96.89 10.77 103.18 C9.91 103.75 9.06 104.32 8.17 104.91 C7.4 105.45 6.63 106 5.83 106.56 C5.14 107 4.44 107.43 3.72 107.88 C1.83 109.56 1.83 109.56 1.31 111.63 C1.3 112.42 1.3 113.21 1.29 114.03 C1.27 114.93 1.25 115.83 1.23 116.76 C1.23 117.73 1.22 118.7 1.22 119.7 C1.21 120.69 1.19 121.68 1.17 122.71 C1.12 125.89 1.1 129.07 1.08 132.25 C1.05 134.4 1.02 136.55 0.99 138.71 C0.92 143.99 0.87 149.28 0.83 154.56 C1.44 154.62 2.04 154.68 2.67 154.75 C3.07 154.79 3.07 154.79 5.09 155 C5.88 155.08 6.68 155.17 7.49 155.25 C24.46 157.48 40.92 166.78 53.83 177.56 C54.79 178.35 55.75 179.15 56.73 179.96 C63.16 185.54 68.18 191.45 72.83 198.56 C73.36 199.35 73.9 200.14 74.45 200.95 C88.5 222.88 91.04 248.94 90.82 274.37 C90.82 275.31 90.81 276.26 90.8 277.23 C90.76 281.13 90.72 285.03 90.66 288.93 C90.12 325.01 100.84 354.75 124.5 382.01 C128.04 386.12 131.44 390.33 134.83 394.56 C135.23 395.06 135.23 395.06 137.26 397.57 C156.17 421.35 167.8 447.63 165.54 478.52 C163.96 490.88 160.98 503.36 151.33 512 C144.54 517.21 138.37 518.72 129.83 518.56 C123.43 517.54 117.91 514.66 113.83 509.56 C111.9 505.84 109.83 501.82 109.83 497.56 C109.01 497.79 108.18 498.01 107.33 498.25 C102.81 498.65 99.77 497.78 95.83 495.56 C91.89 491.95 90.03 488.89 89.7 483.63 C90.11 477.16 93.15 472.69 97.53 468.1 C100.22 464.92 100.29 461.15 100.25 457.16 C99.03 449.51 93.74 443.27 88.83 437.56 C88.63 438.26 88.43 438.97 88.22 439.69 C84.21 453.65 80.12 466.95 72.83 479.56 C72.28 480.52 71.73 481.48 71.16 482.48 C56.15 507.25 29.61 531.36 0.83 538.56 C0.83 591.69 0.83 644.82 0.83 699.56 C5.45 699.89 10.07 700.22 14.83 700.56 C18.03 701.05 21.12 701.56 24.27 702.25 C24.67 702.33 24.67 702.33 26.69 702.77 C40 705.82 54.69 710.68 62.73 722.42 C65.36 727.53 65.33 731.89 63.71 737.31 C61.71 740.77 59.85 742.94 56.83 745.56 C56.56 745.8 56.56 745.8 55.19 747.02 C34.31 764.3 -3.14 764.43 -28.71 762.26 C-47.98 760.16 -71.19 757.14 -84.79 741.75 C-88.79 736.38 -88.81 732.14 -88.17 725.56 C-82.99 714.33 -70.97 709.48 -60.07 705.4 C-48.82 701.65 -37.02 699.56 -25.17 699.56 C-25.17 650.06 -25.17 600.56 -25.17 549.56 C-74.64 570.17 -74.64 570.17 -92.18 585.03 C-94.17 586.56 -94.17 586.56 -97.17 587.56 C-97.17 588.22 -97.17 588.88 -97.17 589.56 C-97.83 589.56 -98.49 589.56 -99.17 589.56 C-99.3 589.85 -99.3 589.85 -99.99 591.33 C-101.15 593.52 -102.43 595.26 -103.98 597.18 C-112.44 608.29 -115.3 619.69 -114.17 633.56 C-111.4 646.41 -102.96 658.15 -92.11 665.44 C-90.66 666.35 -89.2 667.24 -87.73 668.12 C-86.95 668.59 -86.18 669.06 -85.38 669.55 C-77.96 673.92 -70.3 676.84 -62.17 679.56 C-57.42 681.18 -57.42 681.18 -55.17 684.56 C-55.17 687.56 -55.17 687.56 -56.17 690.56 C-71.77 699.97 -96.02 699.05 -113.05 695.1 C-127.84 691.4 -141.39 685.35 -153.17 675.56 C-154.09 674.8 -155.01 674.04 -155.96 673.25 C-162.76 667.38 -168.15 660.99 -173.17 653.56 C-173.8 652.64 -174.42 651.71 -175.07 650.76 C-190.35 626.56 -192.25 596.2 -186.43 568.82 C-183.24 555 -178.25 542.81 -171.17 530.56 C-170.4 529.21 -169.64 527.86 -168.88 526.52 C-166.99 523.19 -165.09 519.87 -163.17 516.56 C-163.83 516.18 -164.5 515.81 -165.18 515.42 C-177.54 508.26 -183.48 499.7 -187.93 486.26 C-193.51 463.96 -187.33 438.17 -176.48 418.43 C-168.32 404.86 -158.21 392.67 -147.98 380.63 C-145.7 377.94 -143.43 375.25 -141.17 372.56 C-140.52 371.79 -139.87 371.02 -139.2 370.23 C-119.46 345.99 -113.91 317.06 -114.18 286.6 C-114.18 285.64 -114.19 284.68 -114.2 283.69 C-114.24 279.71 -114.28 275.74 -114.34 271.77 C-114.75 243.64 -110.47 212.62 -91.17 190.56 C-90.51 190.56 -89.85 190.56 -89.17 190.56 C-88.93 190 -88.69 189.43 -88.44 188.85 C-79.04 171.88 -55.79 162.1 -38.17 156.35 C-35.45 155.63 -32.74 155.05 -29.98 154.51 C-29.08 154.33 -28.18 154.15 -27.25 153.97 C-26.56 153.83 -25.88 153.7 -25.17 153.56 C-25.05 137.51 -24.96 121.47 -24.91 105.42 C-24.88 97.97 -24.85 90.52 -24.79 83.07 C-24.74 76.57 -24.71 70.07 -24.7 63.58 C-24.69 60.14 -24.68 56.7 -24.64 53.26 C-24.6 49.42 -24.6 45.58 -24.6 41.74 C-24.58 40.6 -24.56 39.47 -24.55 38.3 C-24.59 31.3 -25.55 27.85 -30.17 22.56 C-32.01 17.26 -31.35 11.88 -29.38 6.7 C-26.57 1.73 -22.2 -1.43 -17.17 -3.94 C-10.5 -5.05 -5.48 -3.81 0 0 Z M-83.17 195.56 C-102.88 220.86 -105.58 248.5 -105.17 279.56 C-104.7 314.84 -109.26 347.09 -132.17 375.56 C-132.87 376.46 -133.58 377.36 -134.31 378.28 C-137.34 382.12 -140.43 385.89 -143.67 389.56 C-146.17 392.56 -146.17 392.56 -146.17 394.56 C-146.83 394.56 -147.49 394.56 -148.17 394.56 C-149.95 396.56 -151.6 398.56 -153.23 400.68 C-153.72 401.32 -154.21 401.95 -154.71 402.6 C-166.44 417.96 -174.92 433.62 -179.17 452.56 C-179.36 453.32 -179.55 454.08 -179.75 454.86 C-181.92 468.99 -181.22 485.08 -173.68 497.52 C-170.13 502.31 -166.39 505.85 -160.67 507.68 C-155.03 507.48 -151.05 505.84 -146.42 502.68 C-142.92 497.82 -141.67 492.3 -140.17 486.56 C-139.27 486.72 -138.36 486.88 -137.43 487.05 C-133.53 487.66 -130.11 487.76 -126.17 487.56 C-125.51 486.9 -124.85 486.24 -124.17 485.56 C-124.17 479.67 -126.4 476.41 -129.73 471.68 C-133.07 466.74 -134.09 461.43 -133.17 455.56 C-130.31 445.57 -124.39 437.67 -118.17 429.56 C-117.49 428.66 -116.81 427.77 -116.11 426.85 C-114.48 424.74 -112.83 422.64 -111.17 420.56 C-110.4 419.57 -109.64 418.58 -108.86 417.56 C-107.17 415.56 -107.17 415.56 -105.17 414.56 C-104.05 432.46 -109.79 449.77 -117.67 465.68 C-119.02 468.64 -119.23 469.25 -118.54 472.56 C-118.32 473.05 -118.32 473.05 -117.17 475.56 C-115.62 480.26 -114.89 483.51 -116.17 488.37 C-118.54 492.16 -120.12 493.65 -124.17 495.56 C-125.85 495.66 -127.54 495.72 -129.23 495.75 C-131.85 495.91 -131.85 495.91 -134.17 496.56 C-135.9 498.63 -136.86 500.69 -137.96 503.14 C-140.41 508.06 -144.49 511.53 -149.12 514.37 C-158.72 521.26 -164.3 536 -169.17 546.56 C-169.44 547.15 -169.44 547.15 -170.82 550.13 C-181.9 575.82 -184.53 604.73 -174.47 631.1 C-165.55 653.19 -150.29 669.75 -128.92 680.37 C-117.81 685.04 -105.22 688.28 -93.17 688.56 C-92.79 688.58 -92.79 688.58 -90.86 688.68 C-85.1 688.86 -79.76 687.87 -74.17 686.56 C-77.86 683.37 -81.51 681.3 -85.92 679.25 C-91.26 676.69 -95.89 673.79 -100.4 669.94 C-102.17 668.56 -102.17 668.56 -105.17 667.56 C-105.17 666.9 -105.17 666.24 -105.17 665.56 C-105.83 665.56 -106.49 665.56 -107.17 665.56 C-107.43 664.98 -107.69 664.41 -107.96 663.81 C-109.24 661.42 -110.73 659.57 -112.48 657.5 C-121.4 646.19 -124.37 633.74 -123.17 619.56 C-120.68 606.93 -116.12 597.12 -107.29 587.8 C-105.63 586.04 -104.14 584.29 -102.67 582.37 C-82.06 559.19 -45.8 548.04 -17.83 537.07 C-6.68 532.69 4.3 528.31 14.83 522.56 C15.4 522.25 15.98 521.95 16.57 521.63 C25.13 517.03 33.52 512.02 40.83 505.56 C40.83 504.9 40.83 504.24 40.83 503.56 C41.41 503.33 41.99 503.1 42.58 502.87 C45.43 501.21 46.83 499.17 48.83 496.56 C49.22 496.18 49.22 496.18 51.16 494.29 C70.46 474.59 81.83 442.82 81.83 415.56 C92.59 425.95 108.88 443.06 109.27 458.75 C109.14 466.06 106.24 471.76 101.52 477.25 C99.18 480.45 99.39 482.7 99.83 486.56 C101.83 488.56 101.83 488.56 105.52 488.81 C109.58 488.72 112.99 487.84 116.83 486.56 C116.93 487.43 117.03 488.3 117.13 489.19 C118.15 497.07 119.12 501.57 124.52 507.37 C129.38 509.87 134.73 510.2 139.96 508.62 C145.71 506.07 149.4 501.54 152.09 495.94 C159.79 475.88 157.91 453.3 149.83 433.56 C142.59 418.41 132.43 405.67 121.51 393.07 C98.04 365.82 81.38 335.37 81.8 298.54 C81.82 296.38 81.83 294.22 81.84 292.06 C81.87 288.7 81.89 285.35 81.93 281.99 C82.28 244.65 82.28 244.65 77.08 229.06 C76.82 228.23 76.55 227.4 76.28 226.55 C72.19 214.15 66.01 204.56 57.83 194.56 C57.28 193.83 56.73 193.1 56.16 192.35 C43.2 175.98 20.42 165.65 0.1 162.84 C-31.8 160.06 -61.95 170.94 -83.17 195.56 Z "/>
+      <path fill="var(--navy)" transform="translate(500,853)" d="M0 0 C0 9.9 0 19.8 0 30 C-6.91 30 -12.44 29.66 -19.06 28.38 C-19.97 28.2 -20.88 28.02 -21.81 27.84 C-27.74 26.63 -33.44 25.09 -39.12 23 C-39.78 22.76 -40.44 22.53 -41.11 22.28 C-44.8 20.83 -46.97 19.44 -49 16 C-40.1 7.49 -12.58 -6.29 0 0 Z "/>
+      <path fill="var(--navy)" transform="translate(525,853)" d="M0 0 C12.83 0 12.83 0 19.44 1.69 C19.8 1.78 19.8 1.78 21.63 2.23 C30.91 4.63 41.28 7.76 48 15 C48 15.99 48 16.98 48 18 C38.78 24.07 27.88 26.87 17.12 28.81 C16.45 28.94 15.77 29.06 15.07 29.19 C9.88 30.05 5.42 30 0 30 C0 20.1 0 10.2 0 0 Z "/>
+      <path fill="var(--gold)" transform="translate(551,360)" d="M0 0 C5.34 4.97 7.57 10.67 8.29 17.89 C8.52 25.93 7.43 33.12 3.12 40 C-0.37 43.29 -2.7 44.02 -7.5 43.94 C-12.44 42.61 -14.41 40.4 -17.2 36.2 C-21.35 28.49 -21.24 19.37 -19.3 10.99 C-17.33 5.43 -14.92 2.24 -10 -1 C-5.91 -2.36 -3.98 -1.58 0 0 Z "/>
+      <path fill="var(--gold)" transform="translate(484,359)" d="M0 0 C5.01 3.7 7.83 8.92 9 15 C9.7 25.54 9.47 33.61 3.25 42.5 C-0.05 44.7 -3.05 45.32 -7 45 C-12.55 42.28 -14.82 38.96 -17.05 33.35 C-19.37 25.15 -19.48 14.9 -15.75 7.12 C-12.02 0.52 -7.37 -1.4 0 0 Z "/>
+    </symbol>
+  </svg>
+
+  <!-- ══════ Gwari Daily ══════ -->
+  <section class="feature-section" aria-labelledby="daily-heading">
+    <div class="ghost-panel">
+      <h2 id="daily-heading" class="feature-h2">Gwari <em>Daily</em></h2>
+      <p class="feature-tagline">One hole &middot; every golfer &middot; same day</p>
+      <p class="feature-body">Gwari Daily drops a single hole to every player worldwide, once a day. Post your score, chase the streak, and see how you stack up before the reset.</p>
+      <div class="token-strip" role="img" aria-label="A seven day streak, with today highlighted">
+        <span class="token-day" aria-hidden="true">M</span>
+        <span class="token-day" aria-hidden="true">T</span>
+        <span class="token-day" aria-hidden="true">W</span>
+        <span class="token-day token-today" aria-hidden="true">T</span>
+        <span class="token-day token-empty" aria-hidden="true">F</span>
+        <span class="token-day token-empty" aria-hidden="true">S</span>
+        <span class="token-day token-empty" aria-hidden="true">S</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ Ghost Duel ══════ -->
+  <section class="feature-section" aria-labelledby="duel-heading">
+    <div class="ghost-panel">
+      <h2 id="duel-heading" class="feature-h2">Ghost <em>Duel</em></h2>
+      <p class="feature-tagline">Chase a friend, not just a score</p>
+      <p class="feature-body">Send a Ghost Duel and race a friend's round, hole by hole, whenever you both get to play. No live tee time needed, just their ghost waiting on the course.</p>
+      <div class="duel-vs">
+        <div class="duel-side">
+          <div class="duel-avatar" aria-hidden="true"><span class="duel-you">YOU</span></div>
+          <span class="duel-label">You</span>
+        </div>
+        <span class="duel-vs-mark" aria-hidden="true">VS</span>
+        <div class="duel-side">
+          <div class="duel-avatar duel-ghost-avatar" aria-hidden="true">
+            <svg viewBox="0 0 1024 1024" focusable="false"><use href="#gwari-ghost-mark"></use></svg>
+          </div>
+          <span class="duel-label">Their ghost</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ Ghost Hunt ══════ -->
+  <section class="feature-section" aria-labelledby="hunt-heading">
+    <div class="ghost-panel">
+      <h2 id="hunt-heading" class="feature-h2">Ghost <em>Hunt</em></h2>
+      <p class="feature-tagline">Hunt your own ghost</p>
+      <p class="feature-body">Every round leaves a trail. Ghost Hunt lines your current game up against your best, hole by hole, so you always know exactly where you stand against yourself.</p>
+      <div class="hunt-compare" role="img" aria-label="Your current round tracking against your best ever round, hole by hole">
+        <div class="hunt-row">
+          <span class="hunt-row-label">Best</span>
+          <div class="hunt-pips" aria-hidden="true">
+            <span class="pip pip-ghost"></span><span class="pip pip-ghost"></span><span class="pip pip-ghost"></span><span class="pip pip-ghost"></span><span class="pip pip-ghost"></span><span class="pip pip-ghost"></span><span class="pip pip-ghost"></span><span class="pip pip-ghost"></span><span class="pip pip-ghost"></span>
+          </div>
+        </div>
+        <div class="hunt-row">
+          <span class="hunt-row-label">Now</span>
+          <div class="hunt-pips" aria-hidden="true">
+            <span class="pip pip-filled"></span><span class="pip pip-filled"></span><span class="pip pip-filled"></span><span class="pip pip-filled"></span><span class="pip pip-filled"></span><span class="pip pip-filled"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ Register seam — the only contact point between the two families ══════ -->
+  <div class="register-seam" role="presentation">
+    <span class="seam-line" aria-hidden="true"></span>
+    <svg class="seam-glyph" viewBox="0 0 40 46" aria-hidden="true" focusable="false"><path d="M3 3H37V25C37 35 28 41 20 45C12 41 3 35 3 25Z" fill="none" stroke="var(--gold)" stroke-width="1.5"/></svg>
+    <span class="seam-line" aria-hidden="true"></span>
+  </div>
+
+  <!-- ══════ Counties League ══════ -->
+  <section class="feature-section" aria-labelledby="league-heading">
+    <div class="heraldic-panel">
+      <div class="heraldic-panel-inner">
+        <h2 id="league-heading" class="feature-h2">Counties <em>League</em></h2>
+        <p class="feature-tagline">Enter once. Play twice.</p>
+        <p class="feature-body">Opt in and pick the county you'll represent. Every round you log counts twice: up your handicap-flighted ladder, and into your county's average against every other county, all season long.</p>
+        <div class="league-crest" aria-hidden="true">
+          <svg viewBox="0 0 40 46" width="52" height="60" focusable="false">
+            <path d="M3 3H37V25C37 35 28 41 20 45C12 41 3 35 3 25Z" fill="var(--gold)" stroke="var(--navy)" stroke-width="1.3"/>
+            <path d="M3 3H37V13H3Z" fill="var(--navy)"/>
+          </svg>
+        </div>
+        <ol class="league-steps">
+          <li><span class="step-num" aria-hidden="true">1</span><span class="step-text">Enter, and get a county suggested from where you play</span></li>
+          <li><span class="step-num" aria-hidden="true">2</span><span class="step-text">Log rounds through the season, same as always</span></li>
+          <li><span class="step-num" aria-hidden="true">3</span><span class="step-text">Climb your flight ladder, and your county's table</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ Trade Wind Shield ══════ -->
+  <section class="feature-section shield-hero" aria-labelledby="shield-heading">
+    <div class="heraldic-panel">
+      <div class="heraldic-panel-inner">
+        <div class="shield-crest-wrap">
+          <img src="images/TradeWindsShield.svg" alt="The Trade Wind Shield crest" class="shield-crest" width="500" height="605">
+        </div>
+        <h2 id="shield-heading" class="feature-h2">Trade Wind <em>Shield</em></h2>
+        <p class="feature-tagline">Europe versus North America. Every round counts.</p>
+        <p class="feature-body">Once a year, the whole of Gwari splits in two: Europe on one side, the North America on the other. You're entered automatically, and every round you log that week adds to your side's tally. Only one shield gets lifted.</p>
+        <span class="shield-date-chip">First run: Summer 2027</span>
+      </div>
+    </div>
+  </section>
 
   <div class="form-wrap">
     <label class="form-label" for="email">Get early access</label>

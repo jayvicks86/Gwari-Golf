@@ -1,0 +1,160 @@
+<!DOCTYPE html><html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>League identity — direction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B3A5C;--gold:#C4952A;--cream:#F5F0E6;--board:#ECE5D6;--ink:#1B3A5C}
+*{box-sizing:border-box;margin:0;padding:0} body{font-family:'Archivo',system-ui,sans-serif;background:var(--board);color:var(--ink);padding:46px 20px 80px;background-image:radial-gradient(circle at 18% 0%,rgba(196,149,42,.10),transparent 55%)}
+.wrap{max-width:1100px;margin:0 auto} header{max-width:680px;margin:0 auto 26px}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+h1{font-family:'Fraunces',serif;font-weight:700;font-size:2.3rem;line-height:1.05;letter-spacing:-.02em;margin:.3rem 0 .5rem}
+header p{font-size:1rem;color:#4a5a6b;line-height:1.5}
+.read{background:#fff;border-left:4px solid var(--gold);border-radius:12px;padding:16px 18px;margin:0 auto 32px;max-width:680px;font-size:.92rem;color:#3c4a59;line-height:1.55} .read b{color:var(--ink)} .read+.read{margin-top:-20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px}
+.card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 18px 44px -22px rgba(12,27,43,.5)}
+.screen{padding:16px 16px 0} .screen svg{width:100%;height:auto;display:block;border-radius:24px}
+figcaption{padding:14px 18px 20px;display:flex;flex-direction:column;gap:5px}
+figcaption .t{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem} figcaption .step{font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+figcaption .d{font-size:.85rem;color:#55626f;line-height:1.5}
+footer{max-width:680px;margin:34px auto 0;font-size:.85rem;color:#55626f;line-height:1.6} footer b{color:var(--ink)}
+</style></head><body><div class="wrap">
+<header><div class="eyebrow">Gwari · serious tier</div><h1>Badges, not ghosts</h1>
+<p>A direction for the League / Shield register. The ghost is the mascot of the <b>casual, selectable</b> modes (Daily, Duel, Hunt). The <b>seasonal institutions</b> — County League, Trade Wind Shield — speak heraldry instead: crests, monograms, laurels, gold. Here’s the reworked champion crest, plus two ways to identify players on the ladder.</p></header>
+
+<div class="read"><b>Two registers, deliberately different.</b> <b>Ghost family</b> = pick-up modes you schedule like a round or a mini-game; playful; ghost-token identity. <b>Heraldic family</b> = always-on, allegiance-based seasons your rounds feed into; serious; badge identity. The Shield already omitted ghosts — this just makes that the rule for the whole tier.</div>
+<div class="read"><b>Why a badge, not the hero ghost.</b> The hero mark’s ghost is entangled with the flag/pole and never shrank cleanly to a token — that limitation is precisely the case <i>for</i> a purpose-built badge in this tier. The ghost keeps its job as the brand watermark on cards and the face of the casual modes; it just stops being the per-player chip in League/Shield.</div>
+
+<div class="grid">
+
+  <!-- ============ REWORKED CHAMPION CREST ============ -->
+  <figure class="card"><div class="screen"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 640" width="360" height="640" font-family="Archivo,system-ui,sans-serif">
+  <defs><radialGradient id="glow" cx="50%" cy="32%" r="58%"><stop offset="0%" stop-color="#1d3f63"/><stop offset="100%" stop-color="#0E2138"/></radialGradient></defs>
+  <rect width="360" height="640" rx="30" fill="url(#glow)"/>
+  <rect x="0" y="0" width="360" height="58" rx="30" fill="#0E2138"/><rect x="0" y="28" width="360" height="30" fill="#0E2138"/>
+  <text x="20" y="38" fill="#d8dde3" font-size="22" font-weight="700">×</text>
+  <text x="180" y="35" fill="#F5F0E6" font-size="13" font-weight="700" text-anchor="middle">Season champions</text>
+
+  <text x="180" y="98" fill="#C4952A" font-size="11" font-weight="700" letter-spacing="3" text-anchor="middle">SEASON 2026 · CHAMPIONS</text>
+
+  <!-- crown -->
+  <path d="M150 138 L150 124 L161 132 L170.5 118 L180 128 L189.5 118 L199 132 L210 124 L210 138 Z" fill="#C4952A"/>
+  <circle cx="150" cy="123" r="2.4" fill="#E0AD3C"/><circle cx="180" cy="126" r="2.4" fill="#E0AD3C"/><circle cx="210" cy="123" r="2.4" fill="#E0AD3C"/>
+  <rect x="148" y="138" width="64" height="5" rx="2" fill="#A87D22"/>
+
+  <!-- laurels (pale gold), behind shield base -->
+  <g stroke="#E6CF9A" stroke-width="2.3" fill="none" stroke-linecap="round">
+    <path d="M150 300 q-30 -6 -34 -42"/>
+    <path d="M210 300 q30 -6 34 -42"/>
+  </g>
+  <g stroke="#E6CF9A" stroke-width="1.8" stroke-linecap="round">
+    <line x1="138" y1="292" x2="130" y2="287"/><line x1="132" y1="278" x2="123" y2="275"/><line x1="128" y1="263" x2="119" y2="262"/><line x1="125" y1="248" x2="117" y2="249"/>
+    <line x1="222" y1="292" x2="230" y2="287"/><line x1="228" y1="278" x2="237" y2="275"/><line x1="232" y1="263" x2="241" y2="262"/><line x1="235" y1="248" x2="243" y2="249"/>
+  </g>
+
+  <!-- shield: gold field, darker gold border -->
+  <path d="M116 148 H244 V204 C244 250 220 282 180 298 C140 282 116 250 116 204 Z" fill="#C4952A" stroke="#8f6a1d" stroke-width="2.5"/>
+  <!-- inner orle -->
+  <path d="M124 156 H236 V202 C236 242 214 270 180 285 C146 270 124 242 124 202 Z" fill="none" stroke="#13314c" stroke-width="1.1" opacity=".6"/>
+  <!-- chief -->
+  <rect x="119" y="150" width="106" height="0" /> <!-- spacer -->
+  <path d="M116 148 H244 V178 H116 Z" fill="#13314c"/>
+  <text x="180" y="170" fill="#E0AD3C" font-family="Fraunces,serif" font-weight="700" font-size="17" letter-spacing="1" text-anchor="middle">CORNWALL</text>
+  <!-- field charge: golf flag -->
+  <line x1="174" y1="196" x2="174" y2="252" stroke="#13314c" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M174 199 L199 206 L174 213 Z" fill="#13314c"/>
+  <path d="M162 254 q12 -6 24 0" stroke="#13314c" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+
+  <!-- banner -->
+  <path d="M120 304 L240 304 L231 316 L240 328 L120 328 L129 316 Z" fill="#13314c"/>
+  <text x="180" y="320" fill="#E0AD3C" font-size="10.5" font-weight="800" letter-spacing="1.5" text-anchor="middle">CHAMPIONS · 2026</text>
+
+  <text x="180" y="356" fill="#e7edf3" font-size="12.5" text-anchor="middle">Your county won the 2026 season.</text>
+
+  <!-- my contribution -->
+  <rect x="34" y="372" width="292" height="116" rx="16" fill="#0E2138" stroke="#2C4F73" stroke-width="1"/>
+  <text x="50" y="396" fill="#C4952A" font-size="10" font-weight="700" letter-spacing="1.5">MY SEASON</text>
+  <text x="86" y="430" fill="#F5F0E6" font-size="19" font-weight="800" text-anchor="middle">14</text><text x="86" y="447" fill="#9fb2c4" font-size="9" text-anchor="middle">ROUNDS</text>
+  <text x="180" y="430" fill="#E0AD3C" font-size="19" font-weight="800" text-anchor="middle">36.2</text><text x="180" y="447" fill="#9fb2c4" font-size="9" text-anchor="middle">AVG PTS</text>
+  <text x="274" y="430" fill="#F5F0E6" font-size="19" font-weight="800" text-anchor="middle">7th</text><text x="274" y="447" fill="#9fb2c4" font-size="9" text-anchor="middle">IN COUNTY</text>
+  <line x1="50" y1="460" x2="310" y2="460" stroke="#2C4F73" stroke-width="1"/>
+  <text x="180" y="479" fill="#e7edf3" font-size="11.5" text-anchor="middle">Top 10% of the winning county</text>
+
+  <text x="180" y="520" fill="#F5F0E6" font-family="Fraunces,serif" font-weight="700" font-size="17" text-anchor="middle">gwari<tspan fill="#E0AD3C">.</tspan></text>
+  <text x="180" y="539" fill="#C4952A" font-family="Fraunces,serif" font-style="italic" font-size="12.5" text-anchor="middle">Chase the Condor</text>
+
+  <rect x="34" y="558" width="292" height="48" rx="14" fill="#C4952A"/>
+  <text x="180" y="588" fill="#12283F" font-size="14.5" font-weight="800" text-anchor="middle">Share my winner’s card</text>
+  </svg></div>
+    <figcaption><span class="step">Reworked</span><span class="t">Champion crest, no ghost</span><span class="d">A proper heater-shield crest: gold field for the champion, navy chief carrying the county, a golf-flag charge, laurels and a crown, and a banner taking the “Champions 2026” line. Name + trophy as one object — the same logic as the Shield, done heraldically. Your contribution sits below.</span></figcaption></figure>
+
+  <!-- ============ LADDER IDENTITY OPTIONS ============ -->
+  <figure class="card"><div class="screen"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 640" width="360" height="640" font-family="Archivo,system-ui,sans-serif">
+  <defs><path id="mini" d="M3 3 H37 V25 C37 35 28 41 20 45 C12 41 3 35 3 25 Z"/></defs>
+  <rect width="360" height="640" rx="30" fill="#1B3A5C"/>
+  <rect x="0" y="0" width="360" height="58" rx="30" fill="#12283F"/><rect x="0" y="28" width="360" height="30" fill="#12283F"/>
+  <text x="180" y="35" fill="#F5F0E6" font-size="13" font-weight="700" text-anchor="middle">Ladder identity</text>
+
+  <text x="22" y="92" fill="#C4952A" font-size="10" font-weight="700" letter-spacing="1.6">SERIOUS TIER · PICK ONE</text>
+  <text x="22" y="116" fill="#F5F0E6" font-family="Fraunces,serif" font-weight="700" font-size="19">Monogram badges</text>
+  <text x="22" y="137" fill="#9fb2c4" font-size="11.5">Colour-free identity. The leader is gold —</text>
+  <text x="22" y="152" fill="#9fb2c4" font-size="11.5">gold = winning, all the way through.</text>
+
+  <!-- OPTION A: ROUNDEL -->
+  <text x="22" y="186" fill="#E0AD3C" font-size="11" font-weight="800">A · Roundel</text>
+  <text x="92" y="186" fill="#9fb2c4" font-size="10">cap-badge · recommended</text>
+  <rect x="18" y="196" width="324" height="116" rx="14" fill="#13314c" stroke="#2C4F73" stroke-width="1"/>
+  <g font-size="13">
+    <!-- leader -->
+    <text x="34" y="226" fill="#E0AD3C" font-weight="800">1</text>
+    <circle cx="64" cy="222" r="13" fill="#C4952A"/><text x="64" y="226" fill="#12283F" font-size="11" font-weight="800" text-anchor="middle">MP</text>
+    <text x="90" y="226" fill="#F5F0E6" font-weight="700">M. Pascoe</text>
+    <text x="326" y="226" fill="#E0AD3C" font-weight="800" text-anchor="end">39.1</text>
+    <!-- normal -->
+    <text x="34" y="262" fill="#9fb2c4" font-weight="700">2</text>
+    <circle cx="64" cy="258" r="13" fill="#0E2138" stroke="#3a557a" stroke-width="1.3"/><text x="64" y="262" fill="#F5F0E6" font-size="11" font-weight="800" text-anchor="middle">RT</text>
+    <text x="90" y="262" fill="#F5F0E6" font-weight="700">R. Tregaskis</text>
+    <text x="326" y="262" fill="#F5F0E6" font-weight="800" text-anchor="end">38.4</text>
+    <!-- you -->
+    <rect x="26" y="276" width="308" height="30" rx="9" fill="#0E2138" stroke="#E0AD3C" stroke-width="1.3"/>
+    <text x="34" y="296" fill="#E0AD3C" font-weight="800">7</text>
+    <circle cx="64" cy="291" r="13" fill="#13314c" stroke="#E0AD3C" stroke-width="1.6"/><text x="64" y="295" fill="#F5F0E6" font-size="11" font-weight="800" text-anchor="middle">JV</text>
+    <text x="90" y="295" fill="#F5F0E6" font-weight="800">You</text>
+    <text x="326" y="295" fill="#E0AD3C" font-weight="800" text-anchor="end">35.8</text>
+  </g>
+
+  <!-- OPTION B: SHIELD -->
+  <text x="22" y="350" fill="#E0AD3C" font-size="11" font-weight="800">B · Shield</text>
+  <text x="84" y="350" fill="#9fb2c4" font-size="10">echoes the trophy</text>
+  <rect x="18" y="360" width="324" height="116" rx="14" fill="#13314c" stroke="#2C4F73" stroke-width="1"/>
+  <g font-size="13">
+    <!-- leader -->
+    <text x="34" y="390" fill="#E0AD3C" font-weight="800">1</text>
+    <g transform="translate(51,372) scale(0.62)"><use href="#mini" fill="#C4952A"/><text x="20" y="28" fill="#12283F" font-size="17" font-weight="800" text-anchor="middle">MP</text></g>
+    <text x="90" y="390" fill="#F5F0E6" font-weight="700">M. Pascoe</text>
+    <text x="326" y="390" fill="#E0AD3C" font-weight="800" text-anchor="end">39.1</text>
+    <!-- normal -->
+    <text x="34" y="426" fill="#9fb2c4" font-weight="700">2</text>
+    <g transform="translate(51,408) scale(0.62)"><use href="#mini" fill="#0E2138" stroke="#3a557a" stroke-width="2.2"/><text x="20" y="28" fill="#F5F0E6" font-size="17" font-weight="800" text-anchor="middle">RT</text></g>
+    <text x="90" y="426" fill="#F5F0E6" font-weight="700">R. Tregaskis</text>
+    <text x="326" y="426" fill="#F5F0E6" font-weight="800" text-anchor="end">38.4</text>
+    <!-- you -->
+    <rect x="26" y="440" width="308" height="30" rx="9" fill="#0E2138" stroke="#E0AD3C" stroke-width="1.3"/>
+    <text x="34" y="460" fill="#E0AD3C" font-weight="800">7</text>
+    <g transform="translate(51,442) scale(0.62)"><use href="#mini" fill="#13314c" stroke="#E0AD3C" stroke-width="2.4"/><text x="20" y="28" fill="#F5F0E6" font-size="17" font-weight="800" text-anchor="middle">JV</text></g>
+    <text x="90" y="460" fill="#F5F0E6" font-weight="800">You</text>
+    <text x="326" y="460" fill="#E0AD3C" font-weight="800" text-anchor="end">35.8</text>
+  </g>
+
+  <text x="22" y="512" fill="#9fb2c4" font-size="10.5">Roundel reads as a cap/club badge and stays crisp at</text>
+  <text x="22" y="527" fill="#9fb2c4" font-size="10.5">22px. Shield ties to the trophy but risks competing</text>
+  <text x="22" y="542" fill="#9fb2c4" font-size="10.5">with the Shield crest itself — use one or the other.</text>
+
+  <rect x="18" y="562" width="324" height="44" rx="12" fill="#12283F" stroke="#2C4F73" stroke-width="1"/>
+  <text x="180" y="589" fill="#e7edf3" font-size="11.5" text-anchor="middle">Ghost stays as the card watermark + casual-mode mascot</text>
+  </svg></div>
+    <figcaption><span class="step">Pick one</span><span class="t">Player identity on the ladder</span><span class="d">Both drop the ghost and the colour palette for a monogram badge — accessible, scales cleanly, and the gold leader keeps “gold = winning” intact. Roundel feels like a cap/club badge; the shield ties to the trophy but risks doubling up on the shield motif.</span></figcaption></figure>
+
+</div>
+
+<footer>Same navy/gold system. The move is a clean split: <b>ghost = casual/selectable</b> (Daily, Duel, Hunt), <b>heraldry = serious/seasonal</b> (League, Shield). Crest is a champion-gold heater shield with a navy chief; ladder identity becomes a <b>monogram badge</b> with a gold leader. Worth a worklog entry if you’re happy with the split — say the word and I’ll write it up and roll the chosen badge back through the six County screens.</footer>
+</div></body></html>

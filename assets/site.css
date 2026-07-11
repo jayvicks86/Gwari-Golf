@@ -1,0 +1,28 @@
+/* Gwari Golf — shared site tokens and base reset.
+   Loaded on every page (index.html and every Part B placeholder page).
+   Page-specific styling stays inline (index.html) or in leaderboard.css (Part B). */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:  #1B3A5C;
+  --gold:  #C4952A;
+  --cream: #F5F0E6;
+  --navy-light: #234a75;
+  --gold-muted: rgba(196,149,42,0.15);
+  --panel-navy: rgba(255,255,255,0.03);
+  --gold-line: rgba(196,149,42,0.35);
+}
+
+html, body {
+  height: 100%;
+  background: var(--navy);
+  color: var(--cream);
+  font-family: 'Barlow', sans-serif;
+  overflow-x: hidden;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
