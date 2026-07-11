@@ -460,6 +460,7 @@
 
     .pip-filled { background: var(--gold); border-color: var(--gold); }
     .pip-ghost  { opacity: 0.55; }
+    .pip-tie    { background: var(--gold); border-color: var(--gold); opacity: 0.5; }
 
     /* Counties League */
     .league-crest { margin: 4px auto 20px; }
@@ -848,17 +849,17 @@
       <h2 id="hunt-heading" class="feature-h2">Ghost <em>Hunt</em></h2>
       <p class="feature-tagline">Hunt your own ghost</p>
       <p class="feature-body">Every round leaves a trail. Ghost Hunt lines your current game up against your best, hole by hole, so you always know exactly where you stand against yourself.</p>
-      <div class="hunt-compare" role="img" aria-label="Your current round tracking against your best ever round, hole by hole">
+      <div class="hunt-compare" role="img" aria-label="A nine hole comparison between your best ever round and your current round. Gold marks whichever side is ahead on each hole, faded gold marks a tie. You lead the first three holes, your best round draws level then edges ahead through the middle, and you retake the lead over the closing holes.">
         <div class="hunt-row">
           <span class="hunt-row-label">Best</span>
           <div class="hunt-pips" aria-hidden="true">
-            <span class="pip pip-ghost"></span><span class="pip pip-ghost"></span><span class="pip pip-ghost"></span><span class="pip pip-ghost"></span><span class="pip pip-ghost"></span><span class="pip pip-ghost"></span><span class="pip pip-ghost"></span><span class="pip pip-ghost"></span><span class="pip pip-ghost"></span>
+            <span class="pip pip-ghost"></span><span class="pip pip-ghost"></span><span class="pip pip-ghost"></span><span class="pip pip-tie"></span><span class="pip pip-filled"></span><span class="pip pip-filled"></span><span class="pip pip-tie"></span><span class="pip pip-ghost"></span><span class="pip pip-ghost"></span>
           </div>
         </div>
         <div class="hunt-row">
           <span class="hunt-row-label">Now</span>
           <div class="hunt-pips" aria-hidden="true">
-            <span class="pip pip-filled"></span><span class="pip pip-filled"></span><span class="pip pip-filled"></span><span class="pip pip-filled"></span><span class="pip pip-filled"></span><span class="pip pip-filled"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span>
+            <span class="pip pip-filled"></span><span class="pip pip-filled"></span><span class="pip pip-filled"></span><span class="pip pip-tie"></span><span class="pip pip-ghost"></span><span class="pip pip-ghost"></span><span class="pip pip-tie"></span><span class="pip pip-filled"></span><span class="pip pip-filled"></span>
           </div>
         </div>
       </div>
@@ -912,7 +913,9 @@
   <div class="form-wrap">
     <label class="form-label" for="email">Get early access</label>
 
+    <!-- TODO: replace with real Kit form action -->
     <form action="YOUR_KIT_FORM_ACTION_URL_HERE" method="post" target="_blank">
+      <input type="hidden" name="origin" value="homepage">
       <div class="form-row">
         <input type="email" id="email" name="email_address"
                placeholder="your@email.com"

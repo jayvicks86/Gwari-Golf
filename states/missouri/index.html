@@ -49,13 +49,12 @@
 
   <div class="lb-notify">
     <label class="lb-notify-label" for="notify-email-missouri">Notify me</label>
-    <!-- Kit form action URL + hidden fields (per-slug tag) wired in Session 3.
-         <form action="YOUR_KIT_FORM_ACTION_URL_HERE" method="post" target="_blank">
-         <input type="hidden" name="tag" value="missouri"> -->
-    <form class="lb-notify-form">
+    <!-- TODO: replace with real Kit form action -->
+    <form class="lb-notify-form" action="YOUR_KIT_FORM_ACTION_URL_HERE" method="post" target="_blank">
+      <input type="hidden" name="origin" value="state:missouri">
       <div class="lb-notify-row">
-        <input type="email" id="notify-email-missouri" name="email_address" placeholder="your@email.com" autocomplete="email">
-        <button type="button">Notify me</button>
+        <input type="email" id="notify-email-missouri" name="email_address" placeholder="your@email.com" autocomplete="email" required>
+        <button type="submit">Notify me</button>
       </div>
       <p class="lb-notify-note">Notify me when Missouri goes live. Zero spam.</p>
     </form>
